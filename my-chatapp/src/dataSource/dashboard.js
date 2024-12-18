@@ -28,6 +28,7 @@ function App() {
       setMessages((prevMessages) => [
         ...prevMessages,
         { type: 'message', content: chat },
+
       ]);
     });
 
@@ -46,7 +47,7 @@ function App() {
   useEffect(() => {
     // Listen for incoming messages from the server
     socket.on('message', (data) => {
-      console.log('Received server message:', data);  // This is the 'Welcome' message
+      console.log('Received server message:', data) // This is the 'Welcome' message
     });
 
     socket.on('chat message', (msg) => {
@@ -63,10 +64,10 @@ function App() {
 
   const sendMessage = (e) => {
     e.preventDefault();
-    if (newMessage.trim()) {
-      // Emit a chat message to the server
-      socket.emit('chat message', newMessage);
-      setNewMessage('');  // Clear the input field after sending
+    if (newMessage.trim()) 
+      {
+            socket.emit('chat message', newMessage);
+      setNewMessage('');  
     }
   };
 
